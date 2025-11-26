@@ -8,11 +8,15 @@ spec:
     matchLabels:
       app: {{ .Release.Name }}-delete-lab
   template:
-    containers:
-    - name: {{ .Release.Name }}-delete-todo
-      image: {{ .Values.common.loginServer}}/{{ .Values.delete.image.name }}:{{ .Values.delete.image.tag }}
-      ports:
-      - containerPort: {{ .Values.delete.image.containerPort }}
-      env:
-      - name: CONNECTION_STRING
-        value: {{ .Values.delete.image.connection_string }}
+    metadata:
+      labels:
+        app: {{ .Release.Name }}-delete-lab
+    spec:    
+      containers:
+      - name: {{ .Release.Name }}-delete-todo
+        image: {{ .Values.common.loginServer}}/{{ .Values.delete.image.name }}:{{ .Values.delete.image.tag }}
+        ports:
+        - containerPort: {{ .Values.delete.image.containerPort }}
+        env:
+        - name: CONNECTION_STRING
+          value: {{ .Values.delete.image.connection_string }}
