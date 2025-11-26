@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata: 
-  name: {{ .Release.Name }}-ing
+  name: {{ .Release.Name }}-get-ingress
 spec:
  ingressClassName: {{ .Values.common.ingressClass }}
  rules:
@@ -15,4 +15,3 @@ spec:
               number: {{ .Values.get.image.servicePort }}
         path: "/"
         pathType: Prefix 
-        
