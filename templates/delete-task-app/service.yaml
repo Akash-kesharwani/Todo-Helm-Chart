@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ .Release.Name }}-todo
+  name: {{ .Release.Name }}-delete-todo
 spec:
   type: ClusterIP
   selector:
-    app: {{ .Release.Name }}-lab
+    app: {{ .Release.Name }}-delete-lab
   ports:
   - port: {{ .Values.delete.image.servicePort }}
     targetPort: {{ .Values.delete.image.containerPort }}

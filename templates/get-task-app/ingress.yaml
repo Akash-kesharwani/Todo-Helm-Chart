@@ -10,7 +10,7 @@ spec:
      paths:
       - backend:
           service:
-            name: {{ .Release.Name }}-svc
+            name: {{ .Release.Name }}-get-svc
             port:
               number: {{ .Values.get.image.servicePort }}
         path: "/"

@@ -1,19 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Release.Name }}-todo
+  name: {{ .Release.Name }}-delete-todo
 spec:
   replicas: {{ .Values.delete.replicas }}
   selector:
     matchLabels:
-      app: {{ .Release.Name }}-lab
+      app: {{ .Release.Name }}-delete-lab
   template:
     containers:
-    - name: {{ .Release.Name }}-todo
+    - name: {{ .Release.Name }}-delete-todo
       image: {{ .Values.common.loginServer}}/{{ .Values.delete.image.name }}:{{ .Values.delete.image.tag }}
       ports:
       - containerPort: {{ .Values.delete.image.containerPort }}
       env:
       - name: CONNECTION_STRING
         value: {{ .Values.delete.image.connection_string }}
-        

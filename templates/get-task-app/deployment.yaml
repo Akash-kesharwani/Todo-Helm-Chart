@@ -1,23 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Release.Name }}-todo
+  name: {{ .Release.Name }}-get-todo
 spec:
   replicas: {{ .Values.get.replicas }}
   selector:
     matchLabels:
-      app: {{ .Release.Name }}-lab
+      app: {{ .Release.Name }}-get-lab
   template:
     metadata:
       labels:
-        app: {{ .Release.Name }}-lab
+        app: {{ .Release.Name }}-get-lab
     spec:
       containers:
-      - name: {{ .Release.Name }}-todo
+      - name: {{ .Release.Name }}-get-todo
         image : {{ .Values.common.loginServer }}/{{ .Values.get.image.name }}:{{ .Values.get.image.tag }}
         ports:
         - containerPort: {{ .Values.get.image.containerPort }}
         env:
         - name: CONNECTION_STRING
           value: {{ .Values.get.image.connection_string }}
-          

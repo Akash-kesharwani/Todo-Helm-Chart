@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Release.Name }}-todo
+  name: {{ .Release.Name }}-ui-todo
 spec:
   replicas: {{ .Values.ui.replicas }}
   selector:
     matchLabels:
-      app: {{ .Release.Name }}-lab
+      app: {{ .Release.Name }}-ui-lab
   template:
     metadata:
       labels:
-        app: {{ .Release.Name }}-lab
+        app: {{ .Release.Name }}-ui-lab
     spec:
       containers:
-      - name: {{ .Release.Name }}-todo
+      - name: {{ .Release.Name }}-ui-todo
         image: {{ .Values.common.loginServer }}/{{ .Values.ui.image.name }}:{{ .Values.ui.image.tag }}
         ports:
         - containerPort: {{ .Values.ui.image.containerPort }}

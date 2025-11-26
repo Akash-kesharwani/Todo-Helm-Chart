@@ -1,12 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ .Release.Name }}-svc
+  name: {{ .Release.Name }}-get-svc
 spec:
   type: ClusterIP
   selector:
-    app: {{ .Release.Name }}-lab
+    app: {{ .Release.Name }}-get-lab
   ports:
   - port: {{ .Values.get.image.servicePort }}
     targetPort: {{ .Values.get.image.containerPort }}
-    
