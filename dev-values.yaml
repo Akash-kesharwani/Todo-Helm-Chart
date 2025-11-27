@@ -6,7 +6,7 @@ ui:
   replicas: 2
   image:
     name: todomicro-ui
-    tag: v1
+    tag: v2
     containerPort: 80
     servicePort: 80
   host: ui-task.cloudpunk.shop
@@ -17,7 +17,7 @@ add:
     name: add-task-todo-api
     tag: v1
     containerPort: 8000
-    connection_string: Driver={ODBC Driver 18 for SQL Server};Server=tcp:serverak020201.database.windows.net,1433;Database=db-ak;Uid=serveradmin;Pwd=Pa$$w@rd@123;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;
+    connection_string: Driver={ODBC Driver 18 for SQL Server};Server=tcp:serverak020201.database.windows.net,1433;Database=db-ak;Uid=sql_server@123@serverak020201;Pwd=Pa$$w@rd@123;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;
     servicePort: 80
   host: add-task.cloudpunk.shop
 
@@ -27,7 +27,7 @@ delete:
     name: delete-task-todo-api
     tag: v1
     containerPort: 8000
-    connection_string: Driver={ODBC Driver 18 for SQL Server};Server=tcp:serverak020201.database.windows.net,1433;Database=db-ak;Uid=serveradmin;Pwd=Pa$$w@rd@123;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;
+    connection_string: Driver={ODBC Driver 18 for SQL Server};Server=tcp:serverak020201.database.windows.net,1433;Database=db-ak;Uid=sql_server@123@serverak020201;Pwd=Pa$$w@rd@123;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;
     servicePort: 80
   host: del-task.cloudpunk.shop
 
@@ -37,7 +37,7 @@ get:
     name: todo-get-task
     tag: v1
     containerPort: 8000
-    connection_string: Driver={ODBC Driver 18 for SQL Server};Server=tcp:serverak020201.database.windows.net,1433;Database=db-ak;Uid=serveradmin;Pwd=Pa$$w@rd@123;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;
+    connection_string: Driver={ODBC Driver 18 for SQL Server};Server=tcp:serverak020201.database.windows.net,1433;Database=db-ak;Uid=sql_server@123@serverak020201;Pwd=Pa$$w@rd@123;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;
     servicePort: 80
   host: get-task.cloudpunk.shop
 
